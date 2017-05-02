@@ -85,7 +85,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tSegundoApellido">
+        <Component class="javax.swing.JLabel" name="lbSegundoApellido">
           <Properties>
             <Property name="text" type="java.lang.String" value="Segundo Apellido"/>
           </Properties>
@@ -125,7 +125,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tsexo">
+        <Component class="javax.swing.JLabel" name="lbSexo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sexo"/>
           </Properties>
@@ -142,7 +142,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tSegundoNombre">
+        <Component class="javax.swing.JLabel" name="lbSegundoNombre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Segundo Nombre"/>
           </Properties>
@@ -162,7 +162,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tPrimerNombre">
+        <Component class="javax.swing.JLabel" name="lbPrimerNombre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Primer Nombre"/>
           </Properties>
@@ -208,7 +208,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tDireccion">
+        <Component class="javax.swing.JLabel" name="lbDireccion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
           </Properties>
@@ -218,7 +218,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tPrimerApellido">
+        <Component class="javax.swing.JLabel" name="lbPrimerApellido">
           <Properties>
             <Property name="text" type="java.lang.String" value="Primer Apellido"/>
           </Properties>
@@ -293,7 +293,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tdate">
+        <Component class="javax.swing.JLabel" name="lbDate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
           </Properties>
@@ -346,7 +346,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tEmail">
+        <Component class="javax.swing.JLabel" name="lbEmail">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
@@ -366,7 +366,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tCodigo">
+        <Component class="javax.swing.JLabel" name="lbCodigo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Codigo"/>
           </Properties>
@@ -398,7 +398,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="570" y="340" width="-1" height="-1"/>
+              <AbsoluteConstraints x="590" y="340" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -411,7 +411,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="340" width="-1" height="-1"/>
+              <AbsoluteConstraints x="710" y="340" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -424,7 +424,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="670" y="300" width="-1" height="-1"/>
+              <AbsoluteConstraints x="710" y="300" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -437,7 +437,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="570" y="300" width="-1" height="-1"/>
+              <AbsoluteConstraints x="590" y="300" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -471,7 +471,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tIngles">
+        <Component class="javax.swing.JLabel" name="lbIngles">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nivel de ingles"/>
           </Properties>
@@ -481,7 +481,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tSemestre">
+        <Component class="javax.swing.JLabel" name="lbSemestre">
           <Properties>
             <Property name="text" type="java.lang.String" value="Semestre"/>
           </Properties>
@@ -529,7 +529,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tCarrera">
+        <Component class="javax.swing.JLabel" name="lbCarrera">
           <Properties>
             <Property name="text" type="java.lang.String" value="Carrera"/>
           </Properties>
@@ -581,7 +581,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tARchivo">
+        <Component class="javax.swing.JLabel" name="lbARchivo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
@@ -614,7 +614,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tTipo">
+        <Component class="javax.swing.JLabel" name="lbTipo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo de Acceso "/>
           </Properties>
@@ -653,7 +653,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tColorLetra">
+        <Component class="javax.swing.JLabel" name="lbColorLetra">
           <Properties>
             <Property name="text" type="java.lang.String" value="Color letra"/>
           </Properties>
@@ -682,7 +682,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tColorCamp">
+        <Component class="javax.swing.JLabel" name="lbColorCamp">
           <Properties>
             <Property name="text" type="java.lang.String" value="Color campo"/>
           </Properties>
@@ -710,7 +710,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tIdoma">
+        <Component class="javax.swing.JLabel" name="lbIdoma">
           <Properties>
             <Property name="text" type="java.lang.String" value="Idioma"/>
           </Properties>
@@ -733,7 +733,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tHorario">
+        <Component class="javax.swing.JLabel" name="lbHorario">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Swis721 Ex BT" size="14" style="0"/>
@@ -746,7 +746,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tDatosPer">
+        <Component class="javax.swing.JLabel" name="lbDatosP">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Swis721 Ex BT" size="18" style="0"/>
@@ -759,7 +759,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tDatosAca">
+        <Component class="javax.swing.JLabel" name="lbDatosA">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Swis721 Ex BT" size="18" style="0"/>
@@ -772,7 +772,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="tParametros">
+        <Component class="javax.swing.JLabel" name="lbParametros">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Swis721 Ex BT" size="18" style="0"/>

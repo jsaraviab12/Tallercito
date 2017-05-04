@@ -26,7 +26,7 @@ public class Formulario extends javax.swing.JFrame {
      */
     public Formulario() {
         initComponents();
-
+      
     }
 
     @SuppressWarnings("unchecked")
@@ -111,6 +111,11 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
         txtCodigo.setToolTipText("Codigo");
+        txtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodigoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 93, -1));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 790, -1, -1));
 
@@ -127,12 +132,23 @@ public class Formulario extends javax.swing.JFrame {
 
         lbSexo.setText("Sexo");
         jPanel1.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+
+        txtCalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCalleKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 27, -1));
 
         lbSegundoNombre.setText("Segundo Nombre");
         jPanel1.add(lbSegundoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         txtPnombre.setToolTipText("Primer nombre");
+        txtPnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPnombreKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 93, -1));
 
         lbPrimerNombre.setText("Primer Nombre");
@@ -147,6 +163,11 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1.add(tfemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, -1, -1));
 
         txtYear.setText("aaa");
+        txtYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtYearKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 53, -1));
 
         lbDireccion.setText("Dirección");
@@ -156,6 +177,11 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1.add(lbPrimerApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         txtSapellido.setToolTipText("Segundo apellido");
+        txtSapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSapellidoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtSapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 93, -1));
 
         cmbLetra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L" }));
@@ -166,11 +192,25 @@ public class Formulario extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtDiaKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDiaKeyTyped(evt);
+            }
         });
         jPanel1.add(txtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 34, -1));
 
         txtSnombre.setToolTipText("Segundo nombre");
+        txtSnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSnombreKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtSnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 93, -1));
+
+        txtnum1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnum1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtnum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 27, -1));
 
         lbDate.setText("Fecha de nacimiento");
@@ -181,15 +221,31 @@ public class Formulario extends javax.swing.JFrame {
 
         jLabel13.setText("-");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
+
+        txtnum2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnum2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtnum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 27, -1));
 
         txtMes.setText("mm");
+        txtMes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMesKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 31, -1));
 
         lbEmail.setText("Email");
         jPanel1.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         txtApellido.setToolTipText("Primer apellido");
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 93, -1));
 
         lbCodigo.setText("Codigo");
@@ -217,6 +273,11 @@ public class Formulario extends javax.swing.JFrame {
 
         checkLunes.setBackground(new java.awt.Color(255, 255, 255));
         checkLunes.setText("Lunes");
+        checkLunes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkLunesActionPerformed(evt);
+            }
+        });
         jPanel1.add(checkLunes, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, -1));
 
         sliIngles.setBackground(new java.awt.Color(255, 255, 255));
@@ -236,6 +297,11 @@ public class Formulario extends javax.swing.JFrame {
         spiSemestre.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         spiSemestre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         spiSemestre.setRequestFocusEnabled(false);
+        spiSemestre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                spiSemestreKeyTyped(evt);
+            }
+        });
         jPanel1.add(spiSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 56, -1));
 
         cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingeniería Industrial", "Ingeniería Civil", "Ingeniería de Sistemas", "Ingeniería Ambiental", "Ingeniería Electronica", "Ingeniería Electrica", "Derecho", "Psciología ", "Administracíon de Empresa" }));
@@ -259,6 +325,11 @@ public class Formulario extends javax.swing.JFrame {
 
         cmdLimpiar.setBackground(new java.awt.Color(204, 204, 204));
         cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, -1));
 
         lbARchivo.setText("Archivo");
@@ -338,8 +409,8 @@ public class Formulario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDiaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaKeyPressed
-    txtCalle.setText("");
-    
+
+
     }//GEN-LAST:event_txtDiaKeyPressed
 
     private void cmdEStablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEStablecerActionPerformed
@@ -354,52 +425,192 @@ public class Formulario extends javax.swing.JFrame {
             txtMes, txtYear, txtCalle, txtnum1, txtnum2, txtArchivo};
         JComboBox combo[] = {cmbCalle, cmbCarrera, cmbColorCampo, cmbColorLetras, cmbIdioma, cmbLetra, cmbTipo};
         JButton boton[] = {cmdAlmacenar, cmdCancelar, cmdEStablecer, cmdLimpiar};
-        JRadioButton radio[] = {tmasculino,tfemenino,tOtro};
-        JCheckBox check[] = {checkLunes,checkMartes,checkMiercoles,checkJueves,checkViernes,checkSabado};
-        
+        JRadioButton radio[] = {tmasculino, tfemenino, tOtro};
+        JCheckBox check[] = {checkLunes, checkMartes, checkMiercoles, checkJueves, checkViernes, checkSabado};
+
         switch (letra) {
             case 0:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.black);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.black,check,radio);
                 break;
             case 1:
-                    Helper.cambiarColorLetra(label, text, combo, boton, Color.red);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.red,check,radio);
                 break;
             case 2:
-                   Helper.cambiarColorLetra(label, text, combo, boton, Color.green);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.green,check,radio);
                 break;
             case 3:
-                   Helper.cambiarColorLetra(label, text, combo, boton, Color.blue);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.blue,check,radio);
                 break;
             case 4:
-                   Helper.cambiarColorLetra(label, text, combo, boton, Color.yellow);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.yellow,check,radio);
                 break;
             case 5:
-                    Helper.cambiarColorLetra(label, text, combo, boton, Color.white);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.white,check,radio);
                 break;
         }
         switch (idioma) {
             case 0:
-              Helper.cambioiomaEspañol(label, boton, combo, check, radio);
+                Helper.cambioiomaEspañol(label, boton, combo, check, radio);
                 break;
             case 1:
-                Helper.cambioiomaIngles(label,boton,combo,check,radio);
+                Helper.cambioiomaIngles(label, boton, combo, check, radio);
                 break;
             case 2:
                 Helper.cambioiomaPortugues(label, boton, combo, check, radio);
                 break;
             case 3:
-               Helper.cambioiomaFrances(label, boton, combo, check, radio);
+                Helper.cambioiomaFrances(label, boton, combo, check, radio);
                 break;
             case 4:
                 Helper.cambioiomaItaliano(label, boton, combo, check, radio);
                 break;
         }
-        
+        switch (fondo) {
+            case 0:
+                Helper.cambioFondo(text, Color.white);
+                break;
+            case 1:
+                Helper.cambioFondo(text, Color.red);
+                break;
+            case 2:
+                Helper.cambioFondo(text, Color.green);
+                break;
+            case 3:
+                Helper.cambioFondo(text, Color.blue);
+                break;
+            case 4:
+                Helper.cambioFondo(text, Color.yellow);
+                break;
+            case 5:
+                Helper.cambioFondo(text, Color.black);
+                break;
+        }
+
     }//GEN-LAST:event_cmdEStablecerActionPerformed
 
     private void cmdAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAlmacenarActionPerformed
 
     }//GEN-LAST:event_cmdAlmacenarActionPerformed
+
+    private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar() != '.') {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCodigoKeyTyped
+
+    private void txtPnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPnombreKeyTyped
+       char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtPnombreKeyTyped
+
+    private void txtSnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSnombreKeyTyped
+       char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSnombreKeyTyped
+
+    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
+char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }        
+    }//GEN-LAST:event_txtApellidoKeyTyped
+
+    private void txtSapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSapellidoKeyTyped
+char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }        
+    }//GEN-LAST:event_txtSapellidoKeyTyped
+
+    private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCalleKeyTyped
+
+    private void txtnum1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnum1KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtnum1KeyTyped
+
+    private void txtnum2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnum2KeyTyped
+ char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }        
+    }//GEN-LAST:event_txtnum2KeyTyped
+
+    private void txtDiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaKeyTyped
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDiaKeyTyped
+
+    private void txtMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMesKeyTyped
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtMesKeyTyped
+
+    private void txtYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyTyped
+     char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtYearKeyTyped
+
+    private void spiSemestreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spiSemestreKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(evt.getKeyChar())) {
+            getToolkit().beep();
+            evt.consume();
+        }
+       
+    }//GEN-LAST:event_spiSemestreKeyTyped
+
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+     JLabel label[] = {lbDatosP, lbCodigo, lbPrimerNombre, lbSegundoNombre, lbPrimerApellido,
+            lbSegundoApellido, lbEmail, lbDireccion, lbDate, lbSexo, lbDatosA, lbCarrera, lbSemestre,
+            lbIngles, lbHorario, lbParametros, lbARchivo, lbTipo, lbColorLetra, lbColorCamp, lbIdoma};
+        JTextField text[] = {txtCodigo, txtPnombre, txtSnombre, txtApellido, txtSapellido, txtEmail, txtDia,
+            txtMes, txtYear, txtCalle, txtnum1, txtnum2, txtArchivo};
+        JComboBox combo[] = {cmbCalle, cmbCarrera, cmbColorCampo, cmbColorLetras, cmbIdioma, cmbLetra, cmbTipo};
+        JButton boton[] = {cmdAlmacenar, cmdCancelar, cmdEStablecer, cmdLimpiar};
+        JRadioButton radio[] = {tmasculino, tfemenino, tOtro};
+        JCheckBox check[] = {checkLunes, checkMartes, checkMiercoles, checkJueves, checkViernes, checkSabado};
+        Helper.borrar(text,combo);
+        sliIngles.setValue(50);
+        spiSemestre.setValue(0);
+        Helper.cambiarColorLetra(label, text, combo, boton, Color.black,check,radio);
+        Helper.cambioFondo(text, Color.white);
+        Helper.cambioiomaEspañol(label, boton, combo, check, radio);
+        
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
+
+    private void checkLunesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkLunesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkLunesActionPerformed
 
     /**
      * @param args the command line arguments

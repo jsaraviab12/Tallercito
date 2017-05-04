@@ -5,7 +5,9 @@
  */
 package newpackage;
 
+import static com.sun.javafx.tk.Toolkit.getToolkit;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -19,7 +21,7 @@ import javax.swing.JTextField;
  */
 public class Helper {
 
-    public static void cambiarColorLetra(JLabel label[], JTextField text[], JComboBox combo[], JButton boton[], Color color) {
+    public static void cambiarColorLetra(JLabel label[], JTextField text[], JComboBox combo[], JButton boton[], Color color, JCheckBox check[], JRadioButton radio[]) {
         if (color == Color.black) {
             for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
@@ -27,85 +29,121 @@ public class Helper {
                     for (int k = 0; k < combo.length; k++) {
 
                         for (int l = 0; l < boton.length; l++) {
-                            label[i].setForeground(color);
-                            text[j].setForeground(color);
-                            combo[k].setForeground(color);
-                            boton[l].setForeground(color);
+                            for (int m = 0; m < check.length; m++) {
+                                for (int n = 0; n < radio.length; n++) {
+                                    label[i].setForeground(color);
+                                    text[j].setForeground(color);
+                                    combo[k].setForeground(color);
+                                    boton[l].setForeground(color);
+                                    check[m].setForeground(color);
+                                    radio[n].setForeground(color);
+                                }
+                            }
                         }
                     }
                 }
             }
         } else if (color == Color.red) {
-            for (int i = 0; i < label.length; i++) {
+                 for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
 
                         for (int l = 0; l < boton.length; l++) {
-                            label[i].setForeground(color);
-                            text[j].setForeground(color);
-                            combo[k].setForeground(color);
-                            boton[l].setForeground(color);
+                            for (int m = 0; m < check.length; m++) {
+                                for (int n = 0; n < radio.length; n++) {
+                                    label[i].setForeground(color);
+                                    text[j].setForeground(color);
+                                    combo[k].setForeground(color);
+                                    boton[l].setForeground(color);
+                                    check[m].setForeground(color);
+                                    radio[n].setForeground(color);
+                                }
+                            }
                         }
                     }
                 }
             }
         } else if (color == Color.green) {
-            for (int i = 0; i < label.length; i++) {
+                for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
 
                         for (int l = 0; l < boton.length; l++) {
-                            label[i].setForeground(color);
-                            text[j].setForeground(color);
-                            combo[k].setForeground(color);
-                            boton[l].setForeground(color);
+                            for (int m = 0; m < check.length; m++) {
+                                for (int n = 0; n < radio.length; n++) {
+                                    label[i].setForeground(color);
+                                    text[j].setForeground(color);
+                                    combo[k].setForeground(color);
+                                    boton[l].setForeground(color);
+                                    check[m].setForeground(color);
+                                    radio[n].setForeground(color);
+                                }
+                            }
                         }
                     }
                 }
             }
         } else if (color == Color.blue) {
-            for (int i = 0; i < label.length; i++) {
+                for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
 
                         for (int l = 0; l < boton.length; l++) {
-                            label[i].setForeground(color);
-                            text[j].setForeground(color);
-                            combo[k].setForeground(color);
-                            boton[l].setForeground(color);
+                            for (int m = 0; m < check.length; m++) {
+                                for (int n = 0; n < radio.length; n++) {
+                                    label[i].setForeground(color);
+                                    text[j].setForeground(color);
+                                    combo[k].setForeground(color);
+                                    boton[l].setForeground(color);
+                                    check[m].setForeground(color);
+                                    radio[n].setForeground(color);
+                                }
+                            }
                         }
                     }
                 }
             }
         } else if (color == Color.yellow) {
-            for (int i = 0; i < label.length; i++) {
+                for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
 
                         for (int l = 0; l < boton.length; l++) {
-                            label[i].setForeground(color);
-                            text[j].setForeground(color);
-                            combo[k].setForeground(color);
-                            boton[l].setForeground(color);
+                            for (int m = 0; m < check.length; m++) {
+                                for (int n = 0; n < radio.length; n++) {
+                                    label[i].setForeground(color);
+                                    text[j].setForeground(color);
+                                    combo[k].setForeground(color);
+                                    boton[l].setForeground(color);
+                                    check[m].setForeground(color);
+                                    radio[n].setForeground(color);
+                                }
+                            }
                         }
                     }
                 }
             }
         } else if (color == Color.white) {
-            for (int i = 0; i < label.length; i++) {
+                for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
 
                         for (int l = 0; l < boton.length; l++) {
-                            label[i].setForeground(color);
-                            text[j].setForeground(color);
-                            combo[k].setForeground(color);
-                            boton[l].setForeground(color);
+                            for (int m = 0; m < check.length; m++) {
+                                for (int n = 0; n < radio.length; n++) {
+                                    label[i].setForeground(color);
+                                    text[j].setForeground(color);
+                                    combo[k].setForeground(color);
+                                    boton[l].setForeground(color);
+                                    check[m].setForeground(color);
+                                    radio[n].setForeground(color);
+                                }
+                            }
                         }
                     }
                 }
@@ -244,7 +282,7 @@ public class Helper {
 
     public static void cambioiomaItaliano(JLabel label[], JButton boton[], JComboBox combo[], JCheckBox check[], JRadioButton radio[]) {
         String l[] = {"Informazione personale", "Codice", "Nome di battesimo", "Secondo nome", "Primo cognome", "Secondo cognome", "E-mail", "Indirizzo", "Data di nascita",
-            "Genere", "Dati accademici", "Carriera", "Semestre", "Livello d'inglese", "Programma", "Impostazioni", "File", "Tipo di accesso","Testo a colori" , "Sfondo", "Lingua"};
+            "Genere", "Dati accademici", "Carriera", "Semestre", "Livello d'inglese", "Programma", "Impostazioni", "File", "Tipo di accesso", "Testo a colori", "Sfondo", "Lingua"};
         String b[] = {"Salvare", "Annulla", "Accettare", "Pulito"};
         String c[] = {"Lunedi", "Martedì", "Mercoledì", "Giovedi", "Venerdì", "Sabato"};
         String r[] = {"Maschio", "Femmina", "Altro"};
@@ -273,4 +311,43 @@ public class Helper {
 
         }
     }
+
+    public static void cambioFondo(JTextField fondo[], Color color) {
+        if (color == color.black) {
+            for (int i = 0; i < fondo.length; i++) {
+                fondo[i].setBackground(color);
+            }
+        } else if (color == color.red) {
+            for (int i = 0; i < fondo.length; i++) {
+                fondo[i].setBackground(color);
+            }
+        } else if (color == color.green) {
+            for (int i = 0; i < fondo.length; i++) {
+                fondo[i].setBackground(color);
+            }
+        } else if (color == color.blue) {
+            for (int i = 0; i < fondo.length; i++) {
+                fondo[i].setBackground(color);
+            }
+        } else if (color == color.yellow) {
+            for (int i = 0; i < fondo.length; i++) {
+                fondo[i].setBackground(color);
+            }
+        } else if (color == color.white) {
+            for (int i = 0; i < fondo.length; i++) {
+                fondo[i].setBackground(color);
+            }
+        }
+    }
+
+    public static void borrar(JTextField text[], JComboBox combo[]) {
+        for (int i = 0; i < text.length; i++) {
+            text[i].setText("");
+        }
+        for (int i = 0; i < combo.length; i++) {
+            combo[i].setSelectedIndex(0);
+        }
+
+    }
+
 }

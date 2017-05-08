@@ -5,13 +5,17 @@
  */
 package newpackage;
 
+import clases.Helper;
 import java.awt.Color;
 import static java.awt.Color.red;
 import static java.awt.SystemColor.text;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -21,12 +25,15 @@ import javax.swing.JTextField;
  */
 public class Formulario extends javax.swing.JFrame {
 
+    private static final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*.com";
+
     /**
      * Creates new form Formulario
      */
     public Formulario() {
         initComponents();
-      
+
     }
 
     @SuppressWarnings("unchecked")
@@ -430,22 +437,22 @@ public class Formulario extends javax.swing.JFrame {
 
         switch (letra) {
             case 0:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.black,check,radio);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.black, check, radio);
                 break;
             case 1:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.red,check,radio);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.red, check, radio);
                 break;
             case 2:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.green,check,radio);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.green, check, radio);
                 break;
             case 3:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.blue,check,radio);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.blue, check, radio);
                 break;
             case 4:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.yellow,check,radio);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.yellow, check, radio);
                 break;
             case 5:
-                Helper.cambiarColorLetra(label, text, combo, boton, Color.white,check,radio);
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.white, check, radio);
                 break;
         }
         switch (idioma) {
@@ -490,6 +497,50 @@ public class Formulario extends javax.swing.JFrame {
 
     private void cmdAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAlmacenarActionPerformed
 
+        String email = txtEmail.getText();
+        Pattern pat = Pattern.compile(PATTERN_EMAIL);
+        Matcher mat = pat.matcher(txtEmail.getText());
+        if (txtCodigo.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el codigo");
+            txtCodigo.requestFocusInWindow();
+        } else if (txtPnombre.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el primer nombre");
+            txtPnombre.requestFocusInWindow();
+        } else if (txtSnombre.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el segundo nombre");
+            txtSnombre.requestFocusInWindow();
+        } else if (txtApellido.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el primer apellido");
+            txtApellido.requestFocusInWindow();
+        } else if (txtSapellido.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el segundo apellido");
+            txtSapellido.requestFocusInWindow();
+        } else if (txtApellido.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el primer apellido");
+            txtApellido.requestFocusInWindow();
+        } else if (txtEmail.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el correo electronico");
+            txtEmail.requestFocusInWindow();
+
+        } else if (!txtEmail.getText().isEmpty() && !mat.matches()) {
+
+            Helper.errores(rootPane, "Por favor inserte un correo electronico valido");
+            txtEmail.requestFocusInWindow();
+
+        } else if (txtCalle.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el numero de la calle, carrera o tanversal");
+            txtCalle.requestFocusInWindow();
+        } else if (txtnum1.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el numero 1 de la direccion");
+            txtnum1.requestFocusInWindow();
+        } else if (txtnum2.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el numero 2 de la direccion");
+            txtnum2.requestFocusInWindow();
+        } else if (txtArchivo.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el nombre del archivo");
+            txtArchivo.requestFocusInWindow();
+        }
+
     }//GEN-LAST:event_cmdAlmacenarActionPerformed
 
     private void txtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoKeyTyped
@@ -501,35 +552,35 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodigoKeyTyped
 
     private void txtPnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPnombreKeyTyped
-       char c = evt.getKeyChar();
-        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isSpaceChar(c)) {
             getToolkit().beep();
             evt.consume();
         }
     }//GEN-LAST:event_txtPnombreKeyTyped
 
     private void txtSnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSnombreKeyTyped
-       char c = evt.getKeyChar();
-        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isSpaceChar(c)) {
             getToolkit().beep();
             evt.consume();
         }
     }//GEN-LAST:event_txtSnombreKeyTyped
 
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
-char c = evt.getKeyChar();
-        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isSpaceChar(c)) {
             getToolkit().beep();
             evt.consume();
-        }        
+        }
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtSapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSapellidoKeyTyped
-char c = evt.getKeyChar();
-        if (Character.isDigit(evt.getKeyChar())|| Character.isSpaceChar(c)) {
+        char c = evt.getKeyChar();
+        if (Character.isDigit(evt.getKeyChar()) || Character.isSpaceChar(c)) {
             getToolkit().beep();
             evt.consume();
-        }        
+        }
     }//GEN-LAST:event_txtSapellidoKeyTyped
 
     private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
@@ -549,15 +600,15 @@ char c = evt.getKeyChar();
     }//GEN-LAST:event_txtnum1KeyTyped
 
     private void txtnum2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnum2KeyTyped
- char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(evt.getKeyChar())) {
             getToolkit().beep();
             evt.consume();
-        }        
+        }
     }//GEN-LAST:event_txtnum2KeyTyped
 
     private void txtDiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiaKeyTyped
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(evt.getKeyChar())) {
             getToolkit().beep();
             evt.consume();
@@ -565,7 +616,7 @@ char c = evt.getKeyChar();
     }//GEN-LAST:event_txtDiaKeyTyped
 
     private void txtMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMesKeyTyped
-         char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(evt.getKeyChar())) {
             getToolkit().beep();
             evt.consume();
@@ -573,7 +624,7 @@ char c = evt.getKeyChar();
     }//GEN-LAST:event_txtMesKeyTyped
 
     private void txtYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyTyped
-     char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!Character.isDigit(evt.getKeyChar())) {
             getToolkit().beep();
             evt.consume();
@@ -586,11 +637,11 @@ char c = evt.getKeyChar();
             getToolkit().beep();
             evt.consume();
         }
-       
+
     }//GEN-LAST:event_spiSemestreKeyTyped
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
-     JLabel label[] = {lbDatosP, lbCodigo, lbPrimerNombre, lbSegundoNombre, lbPrimerApellido,
+        JLabel label[] = {lbDatosP, lbCodigo, lbPrimerNombre, lbSegundoNombre, lbPrimerApellido,
             lbSegundoApellido, lbEmail, lbDireccion, lbDate, lbSexo, lbDatosA, lbCarrera, lbSemestre,
             lbIngles, lbHorario, lbParametros, lbARchivo, lbTipo, lbColorLetra, lbColorCamp, lbIdoma};
         JTextField text[] = {txtCodigo, txtPnombre, txtSnombre, txtApellido, txtSapellido, txtEmail, txtDia,
@@ -599,13 +650,13 @@ char c = evt.getKeyChar();
         JButton boton[] = {cmdAlmacenar, cmdCancelar, cmdEStablecer, cmdLimpiar};
         JRadioButton radio[] = {tmasculino, tfemenino, tOtro};
         JCheckBox check[] = {checkLunes, checkMartes, checkMiercoles, checkJueves, checkViernes, checkSabado};
-        Helper.borrar(text,combo);
+        Helper.borrar(text, combo);
         sliIngles.setValue(50);
         spiSemestre.setValue(0);
-        Helper.cambiarColorLetra(label, text, combo, boton, Color.black,check,radio);
+        Helper.cambiarColorLetra(label, text, combo, boton, Color.black, check, radio);
         Helper.cambioFondo(text, Color.white);
         Helper.cambioiomaEspañol(label, boton, combo, check, radio);
-        
+
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void checkLunesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkLunesActionPerformed

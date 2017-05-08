@@ -3,17 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package newpackage;
+package clases;
 
 import static com.sun.javafx.tk.Toolkit.getToolkit;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
+import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import java.util.regex.Matcher;
 
 /**
  *
@@ -44,7 +48,7 @@ public class Helper {
                 }
             }
         } else if (color == Color.red) {
-                 for (int i = 0; i < label.length; i++) {
+            for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
@@ -65,7 +69,7 @@ public class Helper {
                 }
             }
         } else if (color == Color.green) {
-                for (int i = 0; i < label.length; i++) {
+            for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
@@ -86,7 +90,7 @@ public class Helper {
                 }
             }
         } else if (color == Color.blue) {
-                for (int i = 0; i < label.length; i++) {
+            for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
@@ -107,7 +111,7 @@ public class Helper {
                 }
             }
         } else if (color == Color.yellow) {
-                for (int i = 0; i < label.length; i++) {
+            for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
@@ -128,7 +132,7 @@ public class Helper {
                 }
             }
         } else if (color == Color.white) {
-                for (int i = 0; i < label.length; i++) {
+            for (int i = 0; i < label.length; i++) {
                 for (int j = 0; j < text.length; j++) {
 
                     for (int k = 0; k < combo.length; k++) {
@@ -350,4 +354,22 @@ public class Helper {
 
     }
 
-}
+    public static void errores(Component ventana, String mensaje) {
+        JOptionPane.showMessageDialog(ventana, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    public static boolean validarCorreor(String correo){
+       // Patrón para validar el email
+        Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ 
+        // El email a validar
+        String email = "info@programacionextrema.com";
+ 
+        Matcher mather = pattern.matcher(email);
+ 
+       return true;
+    }   
+    }
+
+

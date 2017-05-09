@@ -33,6 +33,9 @@ public class Formulario extends javax.swing.JFrame {
      */
     public Formulario() {
         initComponents();
+        grupo1.add(tOtro);
+        grupo1.add(tmasculino);
+        grupo1.add(tfemenino);
 
     }
 
@@ -40,12 +43,12 @@ public class Formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         lbSegundoApellido = new javax.swing.JLabel();
-        tmasculino = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lbSexo = new javax.swing.JLabel();
@@ -53,6 +56,7 @@ public class Formulario extends javax.swing.JFrame {
         lbSegundoNombre = new javax.swing.JLabel();
         txtPnombre = new javax.swing.JTextField();
         lbPrimerNombre = new javax.swing.JLabel();
+        tmasculino = new javax.swing.JRadioButton();
         tOtro = new javax.swing.JRadioButton();
         tfemenino = new javax.swing.JRadioButton();
         txtYear = new javax.swing.JTextField();
@@ -136,10 +140,6 @@ public class Formulario extends javax.swing.JFrame {
         lbSegundoApellido.setText("Segundo Apellido");
         jPanel1.add(lbSegundoApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 120, -1, -1));
 
-        tmasculino.setBackground(new java.awt.Color(255, 255, 255));
-        tmasculino.setText("Masculino");
-        jPanel1.add(tmasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 170, -1, -1));
-
         jLabel10.setText("/");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, -1, -1));
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 93, -1));
@@ -168,6 +168,10 @@ public class Formulario extends javax.swing.JFrame {
         lbPrimerNombre.setText("Primer Nombre");
         jPanel1.add(lbPrimerNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
+        tmasculino.setBackground(new java.awt.Color(255, 255, 255));
+        tmasculino.setText("Masculino");
+        jPanel1.add(tmasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 170, -1, -1));
+
         tOtro.setBackground(new java.awt.Color(255, 255, 255));
         tOtro.setText("Otro");
         jPanel1.add(tOtro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 170, -1, -1));
@@ -176,7 +180,13 @@ public class Formulario extends javax.swing.JFrame {
         tfemenino.setText("Femenino");
         jPanel1.add(tfemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 170, -1, -1));
 
-        txtYear.setText("aaa");
+        txtYear.setText("aaaa");
+        txtYear.setToolTipText("Año");
+        txtYear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtYearMouseClicked(evt);
+            }
+        });
         txtYear.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtYearKeyTyped(evt);
@@ -202,6 +212,12 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1.add(cmbLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
         txtDia.setText("dd");
+        txtDia.setToolTipText("Día");
+        txtDia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtDiaMouseClicked(evt);
+            }
+        });
         txtDia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtDiaKeyPressed(evt);
@@ -244,6 +260,12 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1.add(txtnum2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 27, -1));
 
         txtMes.setText("mm");
+        txtMes.setToolTipText("Mes");
+        txtMes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtMesMouseClicked(evt);
+            }
+        });
         txtMes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtMesKeyTyped(evt);
@@ -308,7 +330,7 @@ public class Formulario extends javax.swing.JFrame {
         lbSemestre.setText("Semestre:");
         jPanel1.add(lbSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
-        spiSemestre.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        spiSemestre.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         spiSemestre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         spiSemestre.setRequestFocusEnabled(false);
         spiSemestre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -347,7 +369,7 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, -1, -1));
 
         lbARchivo.setText("Archivo");
-        jPanel1.add(lbARchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        jPanel1.add(lbARchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
         jPanel1.add(txtArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 102, -1));
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secuencial", "Aleatorio", "Relacional" }));
@@ -445,7 +467,7 @@ public class Formulario extends javax.swing.JFrame {
         idioma = cmbIdioma.getSelectedIndex();
         JLabel label[] = {lbDatosP, lbCodigo, lbPrimerNombre, lbSegundoNombre, lbPrimerApellido,
             lbSegundoApellido, lbEmail, lbDireccion, lbDate, lbSexo, lbDatosA, lbCarrera, lbSemestre,
-            lbIngles, lbHorario, lbparametros, lbARchivo, lbTipo, lbColorLetra, lbColorCamp,lbIdoma ,lblook,jbOpciones};
+            lbIngles, lbHorario, lbparametros, lbARchivo, lbTipo, lbColorLetra, lbColorCamp, lbIdoma, lblook, jbOpciones};
         JTextField text[] = {txtCodigo, txtPnombre, txtSnombre, txtApellido, txtSapellido, txtEmail, txtDia,
             txtMes, txtYear, txtCalle, txtnum1, txtnum2, txtArchivo};
         JComboBox combo[] = {cmbCalle, cmbCarrera, cmbColorCampo, cmbColorLetras, cmbIdioma, cmbLetra, cmbTipo};
@@ -455,67 +477,67 @@ public class Formulario extends javax.swing.JFrame {
 
         switch (letra) {
             case 0:
-            Helper.cambiarColorLetra(label, text, combo, boton, Color.black, check, radio);
-            break;
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.black, check, radio);
+                break;
             case 1:
-            Helper.cambiarColorLetra(label, text, combo, boton, Color.red, check, radio);
-            break;
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.red, check, radio);
+                break;
             case 2:
-            Helper.cambiarColorLetra(label, text, combo, boton, Color.green, check, radio);
-            break;
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.green, check, radio);
+                break;
             case 3:
-            Helper.cambiarColorLetra(label, text, combo, boton, Color.blue, check, radio);
-            break;
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.blue, check, radio);
+                break;
             case 4:
-            Helper.cambiarColorLetra(label, text, combo, boton, Color.yellow, check, radio);
-            break;
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.yellow, check, radio);
+                break;
             case 5:
-            Helper.cambiarColorLetra(label, text, combo, boton, Color.white, check, radio);
-            break;
+                Helper.cambiarColorLetra(label, text, combo, boton, Color.white, check, radio);
+                break;
         }
         switch (idioma) {
             case 0:
-            Helper.cambioiomaEspañol(label, boton, combo, check, radio);
-            break;
+                Helper.cambioiomaEspañol(label, boton, combo, check, radio);
+                break;
             case 1:
-            Helper.cambioiomaIngles(label, boton, combo, check, radio);
-            break;
+                Helper.cambioiomaIngles(label, boton, combo, check, radio);
+                break;
             case 2:
-            Helper.cambioiomaPortugues(label, boton, combo, check, radio);
-            break;
+                Helper.cambioiomaPortugues(label, boton, combo, check, radio);
+                break;
             case 3:
-            Helper.cambioiomaFrances(label, boton, combo, check, radio);
-            break;
+                Helper.cambioiomaFrances(label, boton, combo, check, radio);
+                break;
             case 4:
-            Helper.cambioiomaItaliano(label, boton, combo, check, radio);
-            break;
+                Helper.cambioiomaItaliano(label, boton, combo, check, radio);
+                break;
         }
         switch (fondo) {
             case 0:
-            Helper.cambioFondo(text, Color.white);
-            break;
+                Helper.cambioFondo(text, Color.white);
+                break;
             case 1:
-            Helper.cambioFondo(text, Color.red);
-            break;
+                Helper.cambioFondo(text, Color.red);
+                break;
             case 2:
-            Helper.cambioFondo(text, Color.green);
-            break;
+                Helper.cambioFondo(text, Color.green);
+                break;
             case 3:
-            Helper.cambioFondo(text, Color.blue);
-            break;
+                Helper.cambioFondo(text, Color.blue);
+                break;
             case 4:
-            Helper.cambioFondo(text, Color.yellow);
-            break;
+                Helper.cambioFondo(text, Color.yellow);
+                break;
             case 5:
-            Helper.cambioFondo(text, Color.black);
-            break;
+                Helper.cambioFondo(text, Color.black);
+                break;
         }
     }//GEN-LAST:event_cmdEStablecerActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
         JLabel label[] = {lbDatosP, lbCodigo, lbPrimerNombre, lbSegundoNombre, lbPrimerApellido,
             lbSegundoApellido, lbEmail, lbDireccion, lbDate, lbSexo, lbDatosA, lbCarrera, lbSemestre,
-            lbIngles, lbHorario, lbparametros, lbARchivo, lbTipo, lbColorLetra, lbColorCamp, lbIdoma,lblook,jbOpciones};
+            lbIngles, lbHorario, lbparametros, lbARchivo, lbTipo, lbColorLetra, lbColorCamp, lbIdoma, lblook, jbOpciones};
         JTextField text[] = {txtCodigo, txtPnombre, txtSnombre, txtApellido, txtSapellido, txtEmail, txtDia,
             txtMes, txtYear, txtCalle, txtnum1, txtnum2, txtArchivo};
         JComboBox combo[] = {cmbCalle, cmbCarrera, cmbColorCampo, cmbColorLetras, cmbIdioma, cmbLetra, cmbTipo};
@@ -531,7 +553,8 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void cmdAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAlmacenarActionPerformed
-
+  
+        
         String email = txtEmail.getText();
         Pattern pat = Pattern.compile(PATTERN_EMAIL);
         Matcher mat = pat.matcher(txtEmail.getText());
@@ -571,7 +594,30 @@ public class Formulario extends javax.swing.JFrame {
         } else if (txtnum2.getText().isEmpty()) {
             Helper.errores(rootPane, "Por favor inserte el numero 2 de la direccion");
             txtnum2.requestFocusInWindow();
-        } else if (txtArchivo.getText().isEmpty()) {
+        }else if( txtDia.getText().equalsIgnoreCase("dd") || txtDia.getText().isEmpty()  ){
+             Helper.errores(rootPane, "Por favor inserte el día de nacimiento");
+        }else if(Integer.parseInt(txtDia.getText())>31){
+             Helper.errores(rootPane, "Por favor inserte un día del 1 al 31");
+        }
+        else if(txtMes.getText().isEmpty() || txtMes.getText().equalsIgnoreCase("mm")){
+             Helper.errores(rootPane, "Por favor inserte el mes de nacimiento");
+             
+        }else if(Integer.parseInt(txtMes.getText())>12){
+            Helper.errores(rootPane, "Por favor inserte un mes del 1 al 12"); 
+        }
+        else if(txtYear.getText().isEmpty() || txtYear.getText().equalsIgnoreCase("aaaa")){
+             Helper.errores(rootPane, "Por favor inserte el año de nacimiento");
+        } else if(Integer.parseInt(txtYear.getText())>2002 || Integer.parseInt(txtYear.getText())<1918){
+          Helper.errores(rootPane, "Por favor inserte un año entre 1918 al 2002");  
+        }else if(tmasculino.isSelected()==false && tOtro.isSelected()==false && tfemenino.isSelected()==false){
+            Helper.errores(rootPane, "Por favor selecione su sexo"); 
+        }else if(checkLunes.isSelected()==false && checkMartes.isSelected()==false &&
+                checkMiercoles.isSelected()==false && checkJueves.isSelected()==false &&
+                checkViernes.isSelected()==false && checkViernes.isSelected()==false){
+            Helper.errores(rootPane, "Por favor selecione por lo menos un día"); 
+        }
+        
+        else if (txtArchivo.getText().isEmpty()) {
             Helper.errores(rootPane, "Por favor inserte el nombre del archivo");
             txtArchivo.requestFocusInWindow();
         }
@@ -681,6 +727,18 @@ public class Formulario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCodigoKeyTyped
 
+    private void txtDiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDiaMouseClicked
+        txtDia.setText("");
+    }//GEN-LAST:event_txtDiaMouseClicked
+
+    private void txtMesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMesMouseClicked
+        txtMes.setText("");
+    }//GEN-LAST:event_txtMesMouseClicked
+
+    private void txtYearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtYearMouseClicked
+        txtYear.setText("");
+    }//GEN-LAST:event_txtYearMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -734,6 +792,7 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JButton cmdCancelar;
     private javax.swing.JButton cmdEStablecer;
     private javax.swing.JButton cmdLimpiar;
+    private javax.swing.ButtonGroup grupo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -25,6 +25,8 @@ import java.util.regex.Matcher;
  */
 public class Helper {
 
+   
+
     public static void cambiarColorLetra(JLabel label[], JTextField text[], JComboBox combo[], JButton boton[], Color color, JCheckBox check[], JRadioButton radio[]) {
         if (color == Color.black) {
             for (int i = 0; i < label.length; i++) {
@@ -157,7 +159,7 @@ public class Helper {
 
     public static void cambioiomaIngles(JLabel label[], JButton boton[], JComboBox combo[], JCheckBox check[], JRadioButton radio[]) {
         String lIngles[] = {"Personal information", "Code", "First Name", "Second Name", "First Surname", "Second Surname", "Email", "Address", "Birthdate", "Gender", "Academic data",
-            "Career", "Semester", "English level", "Schedule", "Settings", "Files", "Access Type", "ColorText", "Background", "Language"};
+            "Career", "Semester", "English level", "Schedule", "Settings", "Files", "Access Type", "ColorText", "Background", "Language","Look and feels","Options"};
         String bIngles[] = {"Save", "Cancel", "Accept", "Clean"};
         String checkIngles[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         String radioI[] = {"Male", "Female", "Other"};
@@ -190,7 +192,7 @@ public class Helper {
 
     public static void cambioiomaEspañol(JLabel label[], JButton boton[], JComboBox combo[], JCheckBox check[], JRadioButton radio[]) {
         String l[] = {"Informacion personal", "Codigo", "Primer nombre", "Segundo nombre", "Primer Apellido", "Segundo apellido", "Correo Electronico", "Direccion", "Fecha de nacimineto",
-            "Sexo", "Informacion Academica", "Carrera", "Semestre", "Nivel Ingles", "Horario", "Parametros", "Archivos", "Tipo de acceso", "Color de texto", "Color de fondo", "Idioma"};
+            "Sexo", "Informacion Academica", "Carrera", "Semestre", "Nivel Ingles", "Horario", "Parametros", "Archivos" ,"Tipo de acceso", "Color de texto", "Color de fondo", "Idioma","Aspecto","Opciones"};
         String b[] = {"Guardar", "Cancelar", "Aceptar", "Limpiar"};
         String c[] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
         String r[] = {"Masculino", "Femenino", "Otro"};
@@ -222,7 +224,7 @@ public class Helper {
 
     public static void cambioiomaPortugues(JLabel label[], JButton boton[], JComboBox combo[], JCheckBox check[], JRadioButton radio[]) {
         String l[] = {"Informação pessoal", "Código", "Primeiro nome", "Segundo nome", "Primeiro sobrenome", "Segundo Sobrenome", "O email", "Endereço", "Data de nascimento",
-            "Gênero", "Dados acadêmicos", "Carreira", "Semestre", "Nível de inglês", "Cronograma", "Configurações", "Arquivos", "Tipo de Acesso", "Texto em cores", "fundo", "Língua"};
+            "Gênero", "Dados acadêmicos", "Carreira", "Semestre", "Nível de inglês", "Cronograma", "Configurações", "Arquivos", "Tipo de Acesso", "Texto em cores", "fundo", "Língua","aparência","Opções"};
         String b[] = {"Salve", "Cancelar", "Aceitar", "Limpar"};
         String c[] = {"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"};
         String r[] = {"Masculino", "Fêmea", "De outros"};
@@ -254,7 +256,7 @@ public class Helper {
 
     public static void cambioiomaFrances(JLabel label[], JButton boton[], JComboBox combo[], JCheckBox check[], JRadioButton radio[]) {
         String l[] = {"Informations personnelles", "Code", "Prénom", "Nom de famille", "Premier nom de famille", "Deuxième nom de famille", "Email", "Address", "Date de naissance",
-            "Le genre", "Données académiques", "Carrière", "Semester", "niveau d'anglais", "Programme", "Paramètres", "Des dossiers", "Type d'accès", "Texte en couleur", "Contexte", "La langue"};
+            "Le genre", "Données académiques", "Carrière", "Semester", "niveau d'anglais", "Programme", "Paramètres", "Des dossiers", "Type d'accès", "Texte en couleur", "Contexte", "La langue","Apparence","Options"};
         String b[] = {"Sauvegarder", "Annuler", "Acceptez", "Nettoyer"};
         String c[] = {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"};
         String r[] = {"Mâle", "Femelle", "Autre"};
@@ -286,7 +288,7 @@ public class Helper {
 
     public static void cambioiomaItaliano(JLabel label[], JButton boton[], JComboBox combo[], JCheckBox check[], JRadioButton radio[]) {
         String l[] = {"Informazione personale", "Codice", "Nome di battesimo", "Secondo nome", "Primo cognome", "Secondo cognome", "E-mail", "Indirizzo", "Data di nascita",
-            "Genere", "Dati accademici", "Carriera", "Semestre", "Livello d'inglese", "Programma", "Impostazioni", "File", "Tipo di accesso", "Testo a colori", "Sfondo", "Lingua"};
+            "Genere", "Dati accademici", "Carriera", "Semestre", "Livello d'inglese", "Programma", "Impostazioni", "File", "Tipo di accesso", "Testo a colori", "Sfondo", "Lingua","Aspetto","Opzioni"};
         String b[] = {"Salvare", "Annulla", "Accettare", "Pulito"};
         String c[] = {"Lunedi", "Martedì", "Mercoledì", "Giovedi", "Venerdì", "Sabato"};
         String r[] = {"Maschio", "Femmina", "Altro"};
@@ -357,19 +359,19 @@ public class Helper {
     public static void errores(Component ventana, String mensaje) {
         JOptionPane.showMessageDialog(ventana, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
-    public static boolean validarCorreor(String correo){
-       // Patrón para validar el email
+
+    public static boolean validarCorreor(String correo) {
+        // Patrón para validar el email
         Pattern pattern = Pattern
                 .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
- 
+
         // El email a validar
         String email = "info@programacionextrema.com";
- 
+
         Matcher mather = pattern.matcher(email);
- 
-       return true;
-    }   
+
+        return true;
     }
 
-
+}

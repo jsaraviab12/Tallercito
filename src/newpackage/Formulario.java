@@ -6,6 +6,7 @@
 package newpackage;
 
 import clases.Helper;
+import com.sun.net.httpserver.Filter;
 import java.awt.Color;
 import static java.awt.Color.red;
 import static java.awt.SystemColor.text;
@@ -705,7 +706,7 @@ public class Formulario extends javax.swing.JFrame {
 
     private void txtPnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPnombreKeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(evt.getKeyChar()) || Character.isSpaceChar(c)) {
+        if (Character.isDigit(c) || Character.isSpaceChar(c) ) {
             getToolkit().beep();
             evt.consume();
         }

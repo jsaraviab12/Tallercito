@@ -7,6 +7,10 @@ package newpackage;
 
 import clases.Esudiantes;
 import clases.Helper;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,6 +42,8 @@ public class Lectura extends javax.swing.JFrame {
         txtArchvo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        lbTipo = new javax.swing.JLabel();
+        cmbTipo = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,8 +53,8 @@ public class Lectura extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 366, -1));
-        jPanel1.add(txtArchvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 90, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 460, -1));
+        jPanel1.add(txtArchvo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 90, -1));
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -56,30 +62,51 @@ public class Lectura extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
         jLabel1.setText("Nombre de archivo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        lbTipo.setText("Tipo de Acceso ");
+        jPanel1.add(lbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
+
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secuencial", "Aleatorio" }));
+        jPanel1.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 105, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(416, 338));
+        setSize(new java.awt.Dimension(504, 338));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String file=txtArchvo.getText();
+       
+        RandomAccessFile raf = null;
+        String file=txtArchvo.getText();
+       int tipo=cmbTipo.getSelectedIndex();
+        switch(tipo){
+            case 0:
+              Helper.leerSecuencial(file,jTextArea1); 
+            case 1:
+        {
+            try {
+                Helper.mostrarFichero(raf, jTextArea1);
+            } catch (Exception ex) {
+                Logger.getLogger(Lectura.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        }
+                
         
-        Helper.leerSecuencial(file,jTextArea1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -118,11 +145,13 @@ public class Lectura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbTipo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbTipo;
     private javax.swing.JTextField txtArchvo;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,9 +12,12 @@ import java.awt.Color;
 import static java.awt.Color.red;
 import static java.awt.SystemColor.text;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
@@ -347,7 +350,7 @@ public class Formulario extends javax.swing.JFrame {
         });
         jPanel1.add(spiSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 56, -1));
 
-        cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingeniería Industrial", "Ingeniería Civil", "Ingeniería de Sistemas", "Ingeniería Ambiental", "Derecho", "Psciología ", "Administracíon de Empresa" }));
+        cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingeniería Industrial", "Ingeniería Civil", "Ingeniería de Sistemas", "Ingeniería Ambiental", "Derecho", "Psciología " }));
         jPanel1.add(cmbCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 130, -1));
 
         lbCarrera.setText("Carrera");
@@ -572,6 +575,7 @@ public class Formulario extends javax.swing.JFrame {
         String direccion = "";
         String nacimiento = "";
         String sexo = "";
+        int tipodeacceso= cmbTipo.getSelectedIndex();
         String file = txtArchivo.getText();
         String codigo = txtCodigo.getText();
         String pnombre = txtPnombre.getText();
@@ -679,13 +683,29 @@ public class Formulario extends javax.swing.JFrame {
             Helper.errores(rootPane, "Por favor inserte el nombre del archivo");
             txtArchivo.requestFocusInWindow();
         } else {
+            switch(tipodeacceso){
+                
+                case 0 :
             Esudiantes es = new Esudiantes(codigo, pnombre, snombre, apellido, sapellido, email, direccion, nacimiento, sexo, carrera, semestre, ingles, horario);
-            String ess = (es.getCodigo() + " " + es.getpNombre() + " " + es.getsNombre() + " " + es.getpApellido() + " " + es.getsApellido() + " " + es.getEmail() + " " + es.getDireccion()
-                    + " " + es.getNacimiento() + " " + es.getSexo() + " " + es.getCarrera() + " " + es.getSemestre() + " " + es.getNivel() + " Horario " + es.getHorario());
-        Helper.crearSecuencial(es, ess, file);
-        
+            String ess = (es.getCodigo() + "Nombre: " + es.getpNombre() + "Segundo nombre: " + es.getsNombre() + "Apellido: " + es.getpApellido() + "Segundo apellido: " + es.getsApellido() + 
+                    "Email: " + es.getEmail() + "Direccion: " + es.getDireccion()+ "Fecha: " + es.getNacimiento() + "Sexo: " + es.getSexo() + "Carrera: " + es.getCarrera() +
+                    "Semestre: " + es.getSemestre() + "Nivel de ingles: " + es.getNivel() + " Horario " + es.getHorario());
+                     Helper.crearSecuencial(es, ess, file);
+             break;
+                case 1:
+               Esudiantes esss = new Esudiantes(codigo, pnombre, snombre, apellido, sapellido, email, direccion, nacimiento, sexo, carrera, semestre, ingles, horario);
+               String est = (esss.getCodigo() + "Nombre: " + esss.getpNombre() + "Segundo nombre: " + esss.getsNombre() + "Apellido: " + esss.getpApellido() + "Segundo apellido: " + esss.getsApellido() + 
+                    "Email: " + esss.getEmail() + "Direccion: " + esss.getDireccion()+ "Fecha: " + esss.getNacimiento() + "Sexo: " + esss.getSexo() + "Carrera: " + esss.getCarrera() +
+                    "Semestre: " + esss.getSemestre() + "Nivel de ingles: " + esss.getNivel() + " Horario " + esss.getHorario());
+            {
+                try {
+                    Helper.crearRamdom(file, esss, est);
+                } catch (IOException ex) {
+                    Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             
-            
+            }
         }
     }//GEN-LAST:event_cmdAlmacenarActionPerformed
 

@@ -10,9 +10,12 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -30,6 +33,8 @@ import javax.swing.JTextArea;
  * @author Jesus
  */
 public class Helper {
+
+    static RandomAccessFile fichero = null;
 
     public static void cambiarColorLetra(JLabel label[], JTextField text[], JComboBox combo[], JButton boton[], Color color, JCheckBox check[], JRadioButton radio[]) {
         if (color == Color.black) {
@@ -444,26 +449,52 @@ public class Helper {
         cmb.setSelectedIndex(aux);
 
     }
-    public static void crearSecuencial(Esudiantes es, String ess,String nombre){
-        FileWriter archivo;
-            try {
-                archivo = new FileWriter("" + nombre );
-                archivo.write(ess);
-                archivo.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
 
-            }
-    }
-    public static void leerSecuencial(String nombre,JTextArea espacio){
-       String ess="";
+    public static void crearSecuencial(Esudiantes es, String ess, String nombre) {
+        FileWriter archivo;
         try {
-                FileReader lectro = new FileReader("" + nombre);
-                BufferedReader br = new BufferedReader(lectro);
-                ess = br.readLine();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            } espacio.setText(""+ess);
+            archivo = new FileWriter("" + nombre);
+            archivo.write(ess);
+            archivo.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+
+        }
+    }
+
+    public static void leerSecuencial(String nombre, JTextArea espacio) {
+        String ess = "";
+        try {
+            FileReader lectro = new FileReader("" + nombre);
+            BufferedReader br = new BufferedReader(lectro);
+            ess = br.readLine();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        espacio.setText("" + ess);
+    }
+     
+
+
+     public static void crearRamdom (String nombre, Esudiantes es, String ess) throws FileNotFoundException, IOException{
+           
+         RandomAccessFile raf = null;
+         File fichero = new File(nombre);
+            raf = new RandomAccessFile(fichero, "rw");
+          
+     }
+     public static void añadir(RandomAccessFile raf,String ess) throws Exception {
+        raf.seek(0);
+        raf.writeUTF(ess);
+
+}
+     public static void mostrarFichero(RandomAccessFile raf,JTextArea espacio) throws Exception {
+        String ess;
+        raf.seek(0);
+        while (true) {
+            ess = raf.readUTF();
+              espacio.setText("" + ess);
+        }
     }
 
 }

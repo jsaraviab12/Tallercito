@@ -10,21 +10,21 @@ package clases;
  * @author Jesus
  */
 public class Esudiantes {
- private int codigo;
+ private String codigo;
  private String pNombre;
  private String sNombre;
 private String pApellido;
 private String sApellido;
 private String email;
-private String[] direccion;
-private String[] nacimiento;
-private String sexo;
-private String carrera;
-private int semestre;
-private int nivel;
-private String[] horario;
+private String direccion;
+private String nacimiento;
+private Object sexo;
+private Object carrera;
+private Object semestre;
+private Object nivel;
+private String horario;
 
-    public Esudiantes(int codigo, String pNombre, String sNombre, String pApellido, String sApellido, String email, String[] direccion, String[] nacimiento, String sexo, String carrera, int semestre, int nivel, String[] horario) {
+    public Esudiantes(String codigo, String pNombre, String sNombre, String pApellido, String sApellido, String email, String direccion, String nacimiento, Object sexo, Object carrera, Object semestre, Object nivel, String horario) {
         this.codigo = codigo;
         this.pNombre = pNombre;
         this.sNombre = sNombre;
@@ -40,11 +40,11 @@ private String[] horario;
         this.horario = horario;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -88,59 +88,59 @@ private String[] horario;
         this.email = email;
     }
 
-    public String[] getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String[] direccion) {
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
-    public String[] getNacimiento() {
+    public String getNacimiento() {
         return nacimiento;
     }
 
-    public void setNacimiento(String[] nacimiento) {
+    public void setNacimiento(String nacimiento) {
         this.nacimiento = nacimiento;
     }
 
-    public String getSexo() {
+    public Object getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(Object sexo) {
         this.sexo = sexo;
     }
 
-    public String getCarrera() {
+    public Object getCarrera() {
         return carrera;
     }
 
-    public void setCarrera(String carrera) {
+    public void setCarrera(Object carrera) {
         this.carrera = carrera;
     }
 
-    public int getSemestre() {
+    public Object getSemestre() {
         return semestre;
     }
 
-    public void setSemestre(int semestre) {
+    public void setSemestre(Object semestre) {
         this.semestre = semestre;
     }
 
-    public int getNivel() {
+    public Object getNivel() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
+    public void setNivel(Object nivel) {
         this.nivel = nivel;
     }
 
-    public String[] getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(String[] horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

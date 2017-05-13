@@ -5,11 +5,16 @@
  */
 package newpackage;
 
+import clases.Esudiantes;
 import clases.Helper;
 import com.sun.net.httpserver.Filter;
 import java.awt.Color;
 import static java.awt.Color.red;
 import static java.awt.SystemColor.text;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
@@ -115,6 +120,7 @@ public class Formulario extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         lblook = new javax.swing.JLabel();
         jbOpciones = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Proceso de Matriculacion");
@@ -294,7 +300,7 @@ public class Formulario extends javax.swing.JFrame {
 
         checkViernes.setBackground(new java.awt.Color(255, 255, 255));
         checkViernes.setText("Viernes");
-        jPanel1.add(checkViernes, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 290, -1, -1));
+        jPanel1.add(checkViernes, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 290, -1, -1));
 
         checkSabado.setBackground(new java.awt.Color(255, 255, 255));
         checkSabado.setText("Sabado");
@@ -341,7 +347,7 @@ public class Formulario extends javax.swing.JFrame {
         });
         jPanel1.add(spiSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 56, -1));
 
-        cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingeniería Industrial", "Ingeniería Civil", "Ingeniería de Sistemas", "Ingeniería Ambiental", "Ingeniería Electronica", "Ingeniería Electrica", "Derecho", "Psciología ", "Administracíon de Empresa" }));
+        cmbCarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingeniería Industrial", "Ingeniería Civil", "Ingeniería de Sistemas", "Ingeniería Ambiental", "Derecho", "Psciología ", "Administracíon de Empresa" }));
         jPanel1.add(cmbCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 130, -1));
 
         lbCarrera.setText("Carrera");
@@ -443,6 +449,14 @@ public class Formulario extends javax.swing.JFrame {
         jbOpciones.setFont(new java.awt.Font("Swis721 Ex BT", 0, 18)); // NOI18N
         jbOpciones.setText("Opciones");
         jPanel1.add(jbOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, -1, -1));
+
+        jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 390, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -554,9 +568,56 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void cmdAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAlmacenarActionPerformed
-  
-        
+        String horario = "";
+        String direccion = "";
+        String nacimiento = "";
+        String sexo = "";
+        String file = txtArchivo.getText();
+        String codigo = txtCodigo.getText();
+        String pnombre = txtPnombre.getText();
+        String snombre = txtSnombre.getText();
+        String apellido = txtApellido.getText();
+        String sapellido = txtSapellido.getText();
+        Object cit = cmbCalle.getSelectedItem();
+        String calle = txtCalle.getText();
+        Object complemento = cmbLetra.getSelectedItem();
+        String numero1 = txtnum1.getText();
+        String numero2 = txtnum2.getText();
         String email = txtEmail.getText();
+        String dia = txtDia.getText();
+        String mes = txtMes.getText();
+        String year = txtYear.getText();
+        if (tmasculino.isSelected() == true) {
+            sexo = sexo + "Masculino";
+        } else if (tfemenino.isSelected() == true) {
+            sexo = sexo + "Femenino";
+        } else {
+            sexo = sexo + "Otros";
+        }
+        Object carrera = cmbCarrera.getSelectedItem();
+        Object semestre = spiSemestre.getValue();
+        Object ingles = sliIngles.getValue();
+        if (checkLunes.isSelected() == true) {
+            horario = horario + "Lunes-";
+        }
+        if (checkMartes.isSelected() == true) {
+            horario = horario + "Martes-";
+        }
+        if (checkMiercoles.isSelected() == true) {
+            horario = horario + "Miercoles-";
+        }
+        if (checkJueves.isSelected() == true) {
+            horario = horario + "Jueves-";
+        }
+        if (checkViernes.isSelected() == true) {
+            horario = horario + "Viernes-";
+        }
+        if (checkSabado.isSelected() == true) {
+            horario = horario + "Sabado.";
+        }
+        direccion = (" " + cit + " " + calle + " " + complemento + " " + numero1 + " " + numero2);
+        nacimiento = (" " + dia + " " + mes + " " + year);
+
         Pattern pat = Pattern.compile(PATTERN_EMAIL);
         Matcher mat = pat.matcher(txtEmail.getText());
         if (txtCodigo.getText().isEmpty()) {
@@ -566,7 +627,7 @@ public class Formulario extends javax.swing.JFrame {
             Helper.errores(rootPane, "Por favor inserte el primer nombre");
             txtPnombre.requestFocusInWindow();
         } else if (txtSnombre.getText().isEmpty()) {
-            Helper.errores(rootPane, "Por favor inserte el segundo nombre");
+            Helper.errores(rootPane, "Por favor inserte el segundo nombre, en caso de no tener coloque ninguno");
             txtSnombre.requestFocusInWindow();
         } else if (txtApellido.getText().isEmpty()) {
             Helper.errores(rootPane, "Por favor inserte el primer apellido");
@@ -595,32 +656,36 @@ public class Formulario extends javax.swing.JFrame {
         } else if (txtnum2.getText().isEmpty()) {
             Helper.errores(rootPane, "Por favor inserte el numero 2 de la direccion");
             txtnum2.requestFocusInWindow();
-        }else if( txtDia.getText().equalsIgnoreCase("dd") || txtDia.getText().isEmpty()  ){
-             Helper.errores(rootPane, "Por favor inserte el día de nacimiento");
-        }else if(Integer.parseInt(txtDia.getText())>31){
-             Helper.errores(rootPane, "Por favor inserte un día del 1 al 31");
-        }
-        else if(txtMes.getText().isEmpty() || txtMes.getText().equalsIgnoreCase("mm")){
-             Helper.errores(rootPane, "Por favor inserte el mes de nacimiento");
-             
-        }else if(Integer.parseInt(txtMes.getText())>12){
-            Helper.errores(rootPane, "Por favor inserte un mes del 1 al 12"); 
-        }
-        else if(txtYear.getText().isEmpty() || txtYear.getText().equalsIgnoreCase("aaaa")){
-             Helper.errores(rootPane, "Por favor inserte el año de nacimiento");
-        } else if(Integer.parseInt(txtYear.getText())>2002 || Integer.parseInt(txtYear.getText())<1918){
-          Helper.errores(rootPane, "Por favor inserte un año entre 1918 al 2002");  
-        }else if(tmasculino.isSelected()==false && tOtro.isSelected()==false && tfemenino.isSelected()==false){
-            Helper.errores(rootPane, "Por favor selecione su sexo"); 
-        }else if(checkLunes.isSelected()==false && checkMartes.isSelected()==false &&
-                checkMiercoles.isSelected()==false && checkJueves.isSelected()==false &&
-                checkViernes.isSelected()==false && checkViernes.isSelected()==false){
-            Helper.errores(rootPane, "Por favor selecione por lo menos un día"); 
-        }
-        
-        else if (txtArchivo.getText().isEmpty()) {
+        } else if (txtDia.getText().equalsIgnoreCase("dd") || txtDia.getText().isEmpty()) {
+            Helper.errores(rootPane, "Por favor inserte el día de nacimiento");
+        } else if (Integer.parseInt(txtDia.getText()) > 31) {
+            Helper.errores(rootPane, "Por favor inserte un día del 1 al 31");
+        } else if (txtMes.getText().isEmpty() || txtMes.getText().equalsIgnoreCase("mm")) {
+            Helper.errores(rootPane, "Por favor inserte el mes de nacimiento");
+
+        } else if (Integer.parseInt(txtMes.getText()) > 12) {
+            Helper.errores(rootPane, "Por favor inserte un mes del 1 al 12");
+        } else if (txtYear.getText().isEmpty() || txtYear.getText().equalsIgnoreCase("aaaa")) {
+            Helper.errores(rootPane, "Por favor inserte el año de nacimiento");
+        } else if (Integer.parseInt(txtYear.getText()) > 2002 || Integer.parseInt(txtYear.getText()) < 1918) {
+            Helper.errores(rootPane, "Por favor inserte un año entre 1918 al 2002");
+        } else if (tmasculino.isSelected() == false && tOtro.isSelected() == false && tfemenino.isSelected() == false) {
+            Helper.errores(rootPane, "Por favor selecione su sexo");
+        } else if (checkLunes.isSelected() == false && checkMartes.isSelected() == false
+                && checkMiercoles.isSelected() == false && checkJueves.isSelected() == false
+                && checkViernes.isSelected() == false && checkViernes.isSelected() == false) {
+            Helper.errores(rootPane, "Por favor selecione por lo menos un día");
+        } else if (txtArchivo.getText().isEmpty()) {
             Helper.errores(rootPane, "Por favor inserte el nombre del archivo");
             txtArchivo.requestFocusInWindow();
+        } else {
+            Esudiantes es = new Esudiantes(codigo, pnombre, snombre, apellido, sapellido, email, direccion, nacimiento, sexo, carrera, semestre, ingles, horario);
+            String ess = (es.getCodigo() + " " + es.getpNombre() + " " + es.getsNombre() + " " + es.getpApellido() + " " + es.getsApellido() + " " + es.getEmail() + " " + es.getDireccion()
+                    + " " + es.getNacimiento() + " " + es.getSexo() + " " + es.getCarrera() + " " + es.getSemestre() + " " + es.getNivel() + " Horario " + es.getHorario());
+        Helper.crearSecuencial(es, ess, file);
+        
+            
+            
         }
     }//GEN-LAST:event_cmdAlmacenarActionPerformed
 
@@ -706,7 +771,7 @@ public class Formulario extends javax.swing.JFrame {
 
     private void txtPnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPnombreKeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(c) || Character.isSpaceChar(c) ) {
+        if (Character.isDigit(c) || Character.isSpaceChar(c)) {
             getToolkit().beep();
             evt.consume();
         }
@@ -739,6 +804,11 @@ public class Formulario extends javax.swing.JFrame {
     private void txtYearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtYearMouseClicked
         txtYear.setText("");
     }//GEN-LAST:event_txtYearMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Lectura l = new Lectura ();
+        l.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -794,6 +864,7 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JButton cmdEStablecer;
     private javax.swing.JButton cmdLimpiar;
     private javax.swing.ButtonGroup grupo1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

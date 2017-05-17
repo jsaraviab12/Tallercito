@@ -7,10 +7,12 @@ package newpackage;
 
 import clases.Esudiantes;
 import clases.Helper;
+import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -97,13 +99,26 @@ public class Lectura extends javax.swing.JFrame {
             case 0:
               Helper.leerSecuencial(file,jTextArea1); 
             case 1:
-        {
-            try {
-                Helper.mostrarFichero(raf, jTextArea1);
-            } catch (Exception ex) {
-                Logger.getLogger(Lectura.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+         if (txtArchvo.getText().trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Digite el primer nombre de la persona a ver!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    txtArchvo.requestFocusInWindow();
+                } else {
+                    String archivo = txtArchvo.getText();
+                    try {
+                        Helper.crearFileAlumno(new File("personas.dat"));
+                        int i = Helper.buscarRegistro(archivo);
+                        if (i == -1) {
+                            JOptionPane.showMessageDialog(this, "Ningún registro coincide con los datos de búsqueda.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                            return;
+                        }
+                        JOptionPane.showMessageDialog(this, Helper.getPersona(i));
+                        Helper.cerrar();
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(this, "Error en la búsqueda de registros!", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                break;
+         
         }
                 
         

@@ -16,6 +16,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -33,8 +38,11 @@ import javax.swing.JTextArea;
  * @author Jesus
  */
 public class Helper {
-
-    static RandomAccessFile fichero = null;
+ private static RandomAccessFile flujo;
+    private static int numeroRegistros;
+    private static int tamañoRegistro = 400;
+    
+    
 
     public static void cambiarColorLetra(JLabel label[], JTextField text[], JComboBox combo[], JButton boton[], Color color, JCheckBox check[], JRadioButton radio[]) {
         if (color == Color.black) {
@@ -450,16 +458,35 @@ public class Helper {
 
     }
 
+     public static boolean verificarExistencia(String nombreArchivo){
+       
+        File archivo = new File(nombreArchivo);
+        if(archivo.exists())
+            return true;
+        else
+            return false;
+    }
+
     public static void crearSecuencial(Esudiantes es, String ess, String nombre) {
         FileWriter archivo;
+        if(verificarExistencia(nombre)==true){
+           int reply = JOptionPane.showConfirmDialog(null, "El archivo ya existe, ¿desea remplazarlo?");
+            if (reply == JOptionPane.NO_OPTION)       
+    {
+      System.exit(0);
+        }else{
+                
+            
+        
         try {
             archivo = new FileWriter("" + nombre);
             archivo.write(ess);
             archivo.close();
         } catch (IOException ex) {
             ex.printStackTrace();
-
         }
+        }
+    }
     }
 
     public static void leerSecuencial(String nombre, JTextArea espacio) {
@@ -473,28 +500,138 @@ public class Helper {
         }
         espacio.setText("" + ess);
     }
-     
+    
+    public static void crearFileAlumno(File archivo) throws IOException {
+        if (archivo.exists() && !archivo.isFile()) {
+            throw new IOException(archivo.getName() + " no es un archivo");
+        }
+        flujo = new RandomAccessFile(archivo, "rw");
+        numeroRegistros = (int) Math.ceil(
+                (double) flujo.length() / (double) tamañoRegistro);
+    }
 
+    public static void cerrar() throws IOException {
+        flujo.close();
+    }
 
-     public static void crearRamdom (String nombre, Esudiantes es, String ess) throws FileNotFoundException, IOException{
-           
-         RandomAccessFile raf = null;
-         File fichero = new File(nombre);
-            raf = new RandomAccessFile(fichero, "rw");
-          
-     }
-     public static void añadir(RandomAccessFile raf,String ess) throws Exception {
-        raf.seek(0);
-        raf.writeUTF(ess);
+    public static boolean setPersona(int i, Esudiantes persona) throws IOException {
+        if (i >= 0 && i <= getNumeroRegistros()) {
+            if (persona.getTamaño() > tamañoRegistro) {
+                System.out.println("\nTamaño de registro excedido.");
+            } else {
+                flujo.seek(i * tamañoRegistro);
+                flujo.writeUTF(persona.getCodigo());
+                flujo.writeUTF(persona.getpNombre());
+                flujo.writeUTF(persona.getsNombre());
+                flujo.writeUTF(persona.getpApellido());
+                flujo.writeUTF(persona.getsApellido());
+                flujo.writeUTF(persona.getEmail());
+                flujo.writeUTF(persona.getDireccion());
+                flujo.writeUTF(persona.getNacimiento());
+                flujo.writeUTF(persona.getSexo().toString());
+                flujo.writeUTF(persona.getCarrera().toString());
+                flujo.writeUTF(persona.getSemestre().toString());
+                flujo.writeUTF(persona.getNivel().toString());
+                flujo.writeUTF(persona.getHorario());
+                flujo.writeBoolean(persona.isActivo());
+                return true;
+            }
+        } else {
+            System.out.println("\nNúmero de registro fuera de límites.");
+        }
+        return false;
+    }
 
-}
-     public static void mostrarFichero(RandomAccessFile raf,JTextArea espacio) throws Exception {
-        String ess;
-        raf.seek(0);
-        while (true) {
-            ess = raf.readUTF();
-              espacio.setText("" + ess);
+   private static int buscarRegistroInactivo() throws IOException {
+        String nombre;
+        for (int i = 0; i < getNumeroRegistros(); i++) {
+            flujo.seek(i * tamañoRegistro);
+            if (!getPersona(i).isActivo()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void compactarArchivo(File archivo) throws IOException {
+        crearFileAlumno(archivo); 
+        Esudiantes[] listado = new Esudiantes[numeroRegistros];
+        for (int i = 0; i < numeroRegistros; ++i) 
+            listado[i] = getPersona(i);
+        cerrar(); 
+        archivo.delete(); 
+
+        File tempo = new File("temporal.dat");
+        crearFileAlumno(tempo); 
+        for (Esudiantes p : listado) 
+            añadirPersona(p);
+        cerrar();
+        tempo.renameTo(archivo); 
+    }
+
+    public static void añadirPersona(Esudiantes persona) throws IOException {
+        int inactivo = buscarRegistroInactivo();
+        if (setPersona(inactivo == -1 ? numeroRegistros : inactivo, persona)) {
+            numeroRegistros++;
         }
     }
 
+    public static int getNumeroRegistros() {
+        return numeroRegistros;
+    }
+
+    public static Esudiantes getPersona(int i) throws IOException {
+        if (i >= 0 && i <= getNumeroRegistros()) {
+            flujo.seek(i * tamañoRegistro);
+            return new Esudiantes(flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readUTF(),flujo.readBoolean());
+        } else {
+            System.out.println("\nNúmero de registro fuera de límites.");
+            return null;
+        }
+    }
+
+    public static int buscarRegistro(String buscado) throws IOException {
+        Esudiantes p;
+        if (buscado == null) {
+            return -1;
+        }
+        for (int i = 0; i < getNumeroRegistros(); i++) {
+            flujo.seek(i * tamañoRegistro);
+            p = getPersona(i);
+            if (p.getpNombre().equals(buscado)&& p.isActivo()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static void agregarRelacional (Esudiantes es){
+       Connection cn= null;
+        PreparedStatement prepareStmt = null;
+        try{
+            cn = new Conexion().obtenerConexion();
+            String sql;
+            sql="Insert into tala1(Codigo,pNombre,Snombre,pApellido,sApellido,email,direccion,nacimiento,sexo,carrera,semestre,nivel,horario) values"
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            prepareStmt.setString(1,es.getCodigo());
+            prepareStmt.setString(2,es.getpNombre());
+            prepareStmt.setString(3,es.getsNombre());
+            prepareStmt.setString(4,es.getpApellido());
+            prepareStmt.setString(5,es.getsApellido());
+            prepareStmt.setString(6,es.getEmail());
+            prepareStmt.setString(7,es.getDireccion());
+            prepareStmt.setString(8,es.getNacimiento());
+            prepareStmt.setString(9,es.getSexo().toString());
+            prepareStmt.setString(10,es.getCarrera().toString());
+            prepareStmt.setString(11,es.getSemestre().toString());
+            prepareStmt.setString(12,es.getNivel().toString());
+            prepareStmt.setString(13,es.getHorario().toString());
+        } catch (ClassNotFoundException ex) {
+         Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+     } catch (SQLException ex) {
+         Logger.getLogger(Helper.class.getName()).log(Level.SEVERE, null, ex);
+     }
+        System.out.println("Agregado");
+    }
 }
+
+

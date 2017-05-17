@@ -367,6 +367,11 @@ public class Formulario extends javax.swing.JFrame {
 
         cmdCancelar.setBackground(new java.awt.Color(204, 204, 204));
         cmdCancelar.setText("Cancelar");
+        cmdCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCancelarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, -1, -1));
 
         cmdLimpiar.setBackground(new java.awt.Color(204, 204, 204));
@@ -693,18 +698,21 @@ public class Formulario extends javax.swing.JFrame {
                      Helper.crearSecuencial(es, ess, file);
              break;
                 case 1:
-               Esudiantes esss = new Esudiantes(codigo, pnombre, snombre, apellido, sapellido, email, direccion, nacimiento, sexo, carrera, semestre, ingles, horario);
-               String est = (esss.getCodigo() + "Nombre: " + esss.getpNombre() + "Segundo nombre: " + esss.getsNombre() + "Apellido: " + esss.getpApellido() + "Segundo apellido: " + esss.getsApellido() + 
-                    "Email: " + esss.getEmail() + "Direccion: " + esss.getDireccion()+ "Fecha: " + esss.getNacimiento() + "Sexo: " + esss.getSexo() + "Carrera: " + esss.getCarrera() +
-                    "Semestre: " + esss.getSemestre() + "Nivel de ingles: " + esss.getNivel() + " Horario " + esss.getHorario());
-            {
-                try {
-                    Helper.crearRamdom(file, esss, est);
-                } catch (IOException ex) {
-                    Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
-                }
+              
+            try {
+                            Helper.crearFileAlumno(new File("personas.dat"));
+                            Helper.añadirPersona(new Esudiantes(codigo, pnombre, snombre, apellido, sapellido, email, direccion, nacimiento, sexo, carrera, semestre, ingles, horario,true));
+                            Helper.cerrar();
+              
+        
+            } catch (IOException ex) {
+                Logger.getLogger(Formulario.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            break;
+                case 2:
+                    Esudiantes es2 = new Esudiantes(codigo, pnombre, snombre, apellido, sapellido, email, direccion, nacimiento, sexo, carrera, semestre, ingles, horario);
+                    Helper.agregarRelacional(es2);
+                    
             }
         }
     }//GEN-LAST:event_cmdAlmacenarActionPerformed
@@ -829,6 +837,16 @@ public class Formulario extends javax.swing.JFrame {
         Lectura l = new Lectura ();
         l.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cmdCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelarActionPerformed
+       int p;
+        p = JOptionPane.showConfirmDialog(this, "¿Seguro que desea salir?");
+        if (p == 0) {
+            System.exit(0);
+        } else {
+
+        }
+    }//GEN-LAST:event_cmdCancelarActionPerformed
 
     /**
      * @param args the command line arguments

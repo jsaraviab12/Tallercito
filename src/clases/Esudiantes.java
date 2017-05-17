@@ -23,7 +23,7 @@ private Object carrera;
 private Object semestre;
 private Object nivel;
 private String horario;
-
+private boolean activo;
     public Esudiantes(String codigo, String pNombre, String sNombre, String pApellido, String sApellido, String email, String direccion, String nacimiento, Object sexo, Object carrera, Object semestre, Object nivel, String horario) {
         this.codigo = codigo;
         this.pNombre = pNombre;
@@ -39,6 +39,24 @@ private String horario;
         this.nivel = nivel;
         this.horario = horario;
     }
+
+    public Esudiantes(String codigo, String pNombre, String sNombre, String pApellido, String sApellido, String email, String direccion, String nacimiento, Object sexo, Object carrera, Object semestre, Object nivel, String horario, boolean activo) {
+        this.codigo = codigo;
+        this.pNombre = pNombre;
+        this.sNombre = sNombre;
+        this.pApellido = pApellido;
+        this.sApellido = sApellido;
+        this.email = email;
+        this.direccion = direccion;
+        this.nacimiento = nacimiento;
+        this.sexo = sexo;
+        this.carrera = carrera;
+        this.semestre = semestre;
+        this.nivel = nivel;
+        this.horario = horario;
+        this.activo = activo;
+    }
+    
 
     public String getCodigo() {
         return codigo;
@@ -143,5 +161,38 @@ private String horario;
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+     public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    
+
+    @Override
+    public String toString() {
+        return "Codigo: " + codigo
+                + "\nPrimer Nombre: " + pNombre
+                + "\nSegundo nombre " + sNombre
+                + "\nPrimer Apellido: " + pApellido
+                + "\nSegundo Apellido: " + sApellido
+                + "\nDirección " + direccion
+                + "\nEmail: " + email
+                + "\nFecha de Nacimiento: " + nacimiento
+                + "\nSexo: " + sexo
+                + "\nCarrera: " + carrera
+                + "\nSemestre: " + semestre
+                + "\nNivel de Ingles: " + nivel
+                + "\nHorario Deseado: " + horario;
+    }
+    
+    public int getTamaño() {
+        return getpNombre().length()*2 + 2 + 4 + 1;
+    }
+
+   
 
 }
